@@ -84,6 +84,14 @@ public class MenuManager : MonoBehaviour
         inventoryholder.SetBool("Open", false);
     }
 
+    public void BuyUmbrella()
+    {
+        goldCount -= 1;
+        PlayerPrefs.SetInt("PartyHat", 1);
+        ShopUmbrella.interactable = false;
+        ownUmbrella = true;
+    }
+
 
     public void UseUmbrella()
     {

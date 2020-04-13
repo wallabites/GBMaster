@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class LevelEnd1 : MonoBehaviour {
+public class LevelEnd2 : MonoBehaviour {
 
 	public string levelToLoad;
 
 	public PlayerController thePlayer;
-	public CameraController theCamera;
+	public CameraController1 theCamera;
 	public LevelManager theLevelManager;
 
 	public float waitToMove;
@@ -15,6 +16,16 @@ public class LevelEnd1 : MonoBehaviour {
 	private bool movePlayer;
 
 	public GameObject pauseScreen;
+
+    public bool tutorial;
+
+    public float score;
+    public float scoretobeatlevel;
+    public GameObject LevelEndScreen;
+    public Text scoreText;
+    public bool levelactive;
+    public Text finalscore;
+    public Image goldstar;
 
 	// Use this for initialization
 	void Start () {
@@ -31,12 +42,23 @@ public class LevelEnd1 : MonoBehaviour {
     //
     //}
 	// Update is called once per frame
-	void Update () {
+	void fixedUpdate () {
+        if (levelactive == true)
+        {
+            scoreText.text = "score:" + (Mathf.RoundToInt(score));
+            score += .025f;
+        }
+
+        finalscore.text = "FINAL SCORE:" + (Mathf.RoundToInt(score));
         thePlayer = FindObjectOfType<PlayerController>();
         if (movePlayer) 
 		{
 			thePlayer.myRigidBody.velocity = new Vector3 (thePlayer.moveSpeed, thePlayer.myRigidBody.velocity.y, 0f);
 		}
+        if (score >= scoretobeatlevel)
+        {
+            LevelEnd();
+        }
 	
 	}
 
@@ -45,12 +67,18 @@ public class LevelEnd1 : MonoBehaviour {
 		if(other.tag == "Player")
 			{
 				//SceneManager.LoadScene(levelToLoad);
-			    StartCoroutine("LevelEndCo");
+			   LevelEnd();
 			}
+
+        if (tutorial == true)
+        {
+            PlayerPrefs.SetInt("lvlStart", 1);
+        }
 	}
 
-	public IEnumerator LevelEndCo()
+	public void LevelEnd()
 	{
+        levelactive = false;
 		thePlayer.canMove = false;
 		theCamera.followTarget = false;
 		//pauseScreen.SetActive (false);
@@ -64,10 +92,17 @@ public class LevelEnd1 : MonoBehaviour {
         theLevelManager.levelMusic.Stop ();
 		theLevelManager.gameOverMusic.Play ();
 
-		yield return new WaitForSeconds (waitToMove);
-		movePlayer = true;
+        //yield return new WaitForSeconds (waitToMove);
+        //movePlayer = true;
 
-		yield return new WaitForSeconds (waitToLoad);
-		SceneManager.LoadScene(levelToLoad);
+        //yield return new WaitForSeconds (waitToLoad);
+        //SceneManager.LoadScene(levelToLoad);
+        LevelEndScreen.SetActive(true);
+
+        if (score > 100)
+        {
+            //goldstar.enabled = true;
+
+        }
 	}
 }
