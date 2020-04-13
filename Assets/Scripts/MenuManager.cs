@@ -39,8 +39,15 @@ public class MenuManager : MonoBehaviour
         {
             inventoryUmbrella.SetActive(true);
         }
+        if (wearUmbrella == true)
+        {
+            UsedUmbrella.SetActive(true);
+        }
+        if (wearUmbrella == false)
+        {
+            UsedUmbrella.SetActive(false);
+        }
 
-        
 
         if (goldCount >= 1 && ownUmbrella == false)
         {
