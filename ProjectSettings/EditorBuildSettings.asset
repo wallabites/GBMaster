@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/3MinLevel.unity
     guid: 22f9e152df550b245b0e02d3bebcafeb
+  - enabled: 1
+    path: Assets/Scenes/GoodTutorial.unity
+    guid: e69944b0d2c1a7f47a5206b84e73b968
   m_configObjects: {}
