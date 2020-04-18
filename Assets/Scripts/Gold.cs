@@ -6,6 +6,7 @@ public class Gold : MonoBehaviour
 {
 
     public MenuManager mm;
+    public AudioSource coinsound;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +26,7 @@ public class Gold : MonoBehaviour
         {
             mm.goldCount += 1;
             this.gameObject.SetActive(false);
+            coinsound.Play();
         }
     }
 }
