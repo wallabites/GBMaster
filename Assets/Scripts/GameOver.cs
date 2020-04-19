@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class GameOver : MonoBehaviour {
 
 	public string mainMenu;
+    public string Shop;
 	private LevelManager theLevelManager;
 
 	// Use this for initialization
@@ -29,6 +30,12 @@ public class GameOver : MonoBehaviour {
 	{
 		SceneManager.LoadScene (mainMenu);
 	}
+
+    public void GoToShop()
+    {
+        SceneManager.LoadScene(Shop);
+
+    }
 
 
 }
