@@ -32,7 +32,7 @@ public class MenuManager : MonoBehaviour
     void Update()
     {
 
-        goldText.text = "Gold:" + goldCount;
+        goldText.text = "Peaches:" + goldCount;
         Umbrella = PlayerPrefs.GetInt("Umbrella");
 
         if (Umbrella == 1)
@@ -53,7 +53,10 @@ public class MenuManager : MonoBehaviour
         {
             ShopUmbrella.interactable = true;
         }
-
+        else
+        {
+            ShopUmbrella.interactable = false;
+        }
 
     }
 
