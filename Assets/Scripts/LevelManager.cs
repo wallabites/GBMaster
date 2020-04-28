@@ -49,6 +49,7 @@ public class LevelManager : MonoBehaviour {
 	//public AudioSource coinSound;
 	public AudioSource levelMusic;
 	public AudioSource gameOverMusic;
+    public GameObject rainSpawner;
     //
 	//public GameObject pauseScreen;
 
@@ -138,7 +139,11 @@ public class LevelManager : MonoBehaviour {
        // sr2.enabled = false;
        // rb2D2.simulated = false;
         Instantiate (DieBurst, thePlayer.transform.position, thePlayer.transform.rotation);
-       // Instantiate(DieBurst, thePlayer2.transform.position, thePlayer2.transform.rotation);
+        // Instantiate(DieBurst, thePlayer2.transform.position, thePlayer2.transform.rotation);
+        if (rainSpawner != null)
+        {
+            rainSpawner.SetActive(false);
+        }
 
         yield return new WaitForSeconds (waitToRespawn);
 

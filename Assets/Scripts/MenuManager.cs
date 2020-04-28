@@ -49,7 +49,7 @@ public class MenuManager : MonoBehaviour
         }
 
 
-        if (goldCount >= 1 && ownUmbrella == false)
+        if (goldCount >= 25 && ownUmbrella == false)
         {
             ShopUmbrella.interactable = true;
         }
@@ -96,7 +96,7 @@ public class MenuManager : MonoBehaviour
 
     public void BuyUmbrella()
     {
-        goldCount -= 1;
+        goldCount -= 25;
         PlayerPrefs.SetInt("PartyHat", 1);
         ShopUmbrella.interactable = false;
         ownUmbrella = true;

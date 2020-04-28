@@ -7843,7 +7843,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 8d6906252c3ea29468482e68a6f84de4, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 9410bf82ad5332e43a5234d36667805d, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -9762,6 +9762,7 @@ MonoBehaviour:
   invincible: 0
   levelMusic: {fileID: 319267438}
   gameOverMusic: {fileID: 319044294}
+  rainSpawner: {fileID: 1489154399}
 --- !u!114 &332688768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27776,7 +27777,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: '1
+  m_Text: '25
 
 
 '
@@ -40379,8 +40380,8 @@ MonoBehaviour:
   - {fileID: 1292249383}
   - {fileID: 1455322950}
   - {fileID: 1146044995}
-  minDelay: 0.1
-  maxDelay: 1
+  minDelay: 1
+  maxDelay: 2
 --- !u!1001 &1492879252
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56044,9 +56045,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolBlock:
-    size: 10
+    size: 30
     emptyBehavior: 2
-    maxSize: 20
+    maxSize: 60
     maxEmptyBehavior: 0
     prefab: {fileID: 7533050336119873972, guid: e6c9d435ccf8c0c4ba854202a1333eec,
       type: 3}
